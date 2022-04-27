@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import { Server } from '@overnightjs/core';
 import { ForecastController } from './controllers/forecast';
 import { BeachesController } from './controllers/beaches';
+import { UsersController } from './controllers/users';
 import * as database from './database';
 
 export class SetupServer extends Server {
@@ -10,7 +11,9 @@ export class SetupServer extends Server {
   }
 
   public start(): void {
-    this.app.listen(this.port, () => console.log('running'));
+    this.app.listen(this.port, () =>
+      console.info('server listening on port', this.port)
+    );
   }
 
   public async init(): Promise<void> {
@@ -26,7 +29,12 @@ export class SetupServer extends Server {
   private setupControllers(): void {
     const forecastController = new ForecastController();
     const beachesController = new BeachesController();
-    this.addControllers([forecastController, beachesController]);
+    const usersController = new UsersController();
+    this.addControllers([
+      forecastController,
+      beachesController,
+      usersController,
+    ]);
   }
 
   private async databaseSetup(): Promise<void> {

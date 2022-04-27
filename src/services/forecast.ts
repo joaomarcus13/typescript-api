@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import { InternalError } from '../util/error/internal-error';
 import { ForecastPoint, StormGlass } from '../clients/stormGlass';
 import { Beach } from '..//models/beach';
@@ -31,7 +30,7 @@ export class Forecast {
       }
       return this.mapForecastByTime(pointsWithCorrectSource);
     } catch (error) {
-      throw new ForecastProcessingInternalError((error as AxiosError).message);
+      throw new ForecastProcessingInternalError((error as Error).message);
     }
   }
 
