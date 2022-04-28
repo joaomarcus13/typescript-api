@@ -1,13 +1,22 @@
 import { Controller, Post } from '@overnightjs/core';
+import mongoose from 'mongoose';
 import { Response, Request } from 'express';
+import { BaseController } from '.';
 import { User } from '../models/user';
 
 @Controller('users')
-export class UsersController {
+export class UsersController extends BaseController {
   @Post('')
   public async create(req: Request, res: Response): Promise<void> {
-    const user = new User(req.body);
-    const newUser = await user.save();
-    res.status(201).send(newUser);
+    try {
+      const user = new User(req.body);
+      const newUser = await user.save();
+      res.status(201).send(newUser);
+    } catch (error) {
+      this.sendCreatedUpdateErrorResponse(
+        res,
+        error as Error | mongoose.Error.ValidationError
+      );
+    }
   }
 }
