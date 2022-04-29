@@ -12,7 +12,6 @@ export abstract class BaseController {
     res: Response,
     error: mongoose.Error.ValidationError | Error
   ): void {
-    console.log(error);
     if (error instanceof mongoose.Error.ValidationError) {
       const clientErrors = this.handleClientErrors(error);
       res.status(clientErrors.code).send(clientErrors);
