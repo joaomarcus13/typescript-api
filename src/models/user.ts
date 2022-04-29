@@ -47,16 +47,16 @@ schema.path('email').validate(
   CUSTOM_VALIDATION.DUPLICATED
 );
 
-schema.pre<UserModel>('save', async function (next): Promise<void> {
+schema.pre<UserModel>('save', async function (): Promise<void> {
   if (!this.password || !this.isModified('password')) {
     return;
   }
   try {
-    this.password = await AuthService.hashPassword(this.password);
-  } catch (error) {
-    console.error('error hashing password', error);
+    const hashedPassword = await AuthService.hashPassword(this.password);
+    this.password = hashedPassword;
+  } catch (err) {
+    console.error(`Error hashing the password for the user ${this.name}`, err);
   }
-  next();
 });
 
 export const User: Model<UserModel> = mongoose.model('User', schema);
