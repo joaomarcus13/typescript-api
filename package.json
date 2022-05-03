@@ -25,6 +25,10 @@
     "typescript",
     "api"
   ],
+  "engines": {
+    "npm": "8.x",
+    "node": "12.x"
+  },
   "author": "",
   "license": "MIT",
   "bugs": {
