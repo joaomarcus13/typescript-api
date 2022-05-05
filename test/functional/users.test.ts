@@ -1,3 +1,5 @@
+import { expect, it, beforeEach, describe } from '@jest/globals';
+
 import { User } from '../../src/models/user';
 import AuthService from '../../src/services/auth';
 describe('Users functional tests', () => {

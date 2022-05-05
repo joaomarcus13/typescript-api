@@ -1,3 +1,4 @@
+import { expect, it, jest, describe } from '@jest/globals';
 import { StormGlass } from '../stormGlass';
 import * as HTTPUtil from '../../util/request';
 import stormGlassWeather3HourFixture from './../../../test/fixtures/stormglass_weather_3_hours.json';

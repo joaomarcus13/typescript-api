@@ -1,3 +1,5 @@
+import { expect, it, beforeEach, describe } from '@jest/globals';
+
 import { Beach, BeachPosition } from '../../src/models/beach';
 import { User } from '../../src/models/user';
 import stormGlassWeather3HoursFixture from '../fixtures/stormglass_weather_3_hours.json';

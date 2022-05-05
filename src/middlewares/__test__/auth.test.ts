@@ -1,3 +1,4 @@
+import { expect, it, jest, describe } from '@jest/globals';
 import AuthService from '../../services/auth';
 import { authMiddleware } from '../auth';
 

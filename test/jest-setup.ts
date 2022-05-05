@@ -1,5 +1,6 @@
 import { SetupServer } from '../src/server';
 import supertest from 'supertest';
+import { afterAll, beforeAll } from '@jest/globals';
 
 let server: SetupServer;
 beforeAll(async () => {

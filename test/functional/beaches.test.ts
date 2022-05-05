@@ -1,3 +1,4 @@
+import { expect, it, describe, beforeEach } from '@jest/globals';
 import AuthService from '../../src/services/auth';
 import { Beach } from '../../src/models/beach';
 import { User } from '../../src/models/user';
