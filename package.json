@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "tsc": "tsc",
     "start": "npm run build && node dist/src/index.js",
     "start:local": "ts-node-dev --transpile-only src/index.ts",
     "test": "npm run test:unit && npm run test:functional",
