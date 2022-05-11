@@ -36,7 +36,8 @@ describe('Users functional tests', () => {
       expect(respose.status).toBe(422);
       expect(respose.body).toEqual({
         code: 422,
-        error: 'User validation failed: name: Path `name` is required.',
+        message: 'User validation failed: name: Path `name` is required.',
+        error: 'Unprocessable Entity',
       });
     });
 
@@ -51,7 +52,9 @@ describe('Users functional tests', () => {
       expect(respose.status).toBe(409);
       expect(respose.body).toEqual({
         code: 409,
-        error: 'User validation failed: email: already exists in the database.',
+        message:
+          'User validation failed: email: already exists in the database.',
+        error: 'Conflict',
       });
     });
   });
